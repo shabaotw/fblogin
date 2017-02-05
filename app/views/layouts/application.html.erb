@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fblogin</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+  <% if current_user %>
+    <%= current_user.name %><%= image_tag(@auth['info']['image']) %>
+    <% else %>
+      <%= link_to "auth/facebook" do %><%= image_tag('facebook', width: '40', heigth: '40')%><% end %>
+  <% end %>
+
+
+    <%= yield %>
+  </body>
+</html>
